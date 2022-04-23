@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-lg-12">
+    <h2>{{news.title}}</h2>
+    <h5>{{news.doc}}</h5>
+    <span class="badge rounded-pills bg-success">{{news.author}}</span>
+    <p class="lead">{{news.description}}</p>
+</div>
+{% endblock content %}

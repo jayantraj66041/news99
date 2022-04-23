@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-lg-3">
+    <div class="list-group">
+        <a href="" class="list-group-item list-group-item-action">Latest News</a>
+        {% for category in categories %}
+        <a href="{% url 'category' category.slug %}" class="list-group-item list-group-item-action">{{category.name}}</a>
+        {% endfor %}
+    </div>
+</div>
+<div class="col-lg-9">
+    <h3 class="text-decoration-underline">{{category.name}}</h3>
+    {% for news in category.news_set.all %}
+    <div class="card mb-3 shadow shadow-sm">
+        <a href="{% url 'news' news.slug %}" class="text-decoration-none text-dark">
+        <div class="card-body">
+            <h3 class="nav-link p-0 text-danger">{{news.title}}</h3>
+            <p class="small">{{news.description|slice:":500"}}</p>
+        </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
